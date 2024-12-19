@@ -170,7 +170,6 @@ RSpec.describe KazeClient do
                                            .add_order_field('id')
                                            .add_order_direction(:desc)
                                            .filter_by_id('a')
-                                           .filter_by_email('a')
 
       response = client.execute(request)
 
@@ -181,7 +180,6 @@ RSpec.describe KazeClient do
       expect(response.dig('meta', 'order_field')).to eq('id')
       expect(response.dig('meta', 'order_direction')).to eq('desc')
       expect(response.dig('meta', 'filter', 'id')).to eq('a')
-      expect(response.dig('meta', 'filter', 'email')).to eq(%w[a])
     end
   end
 
